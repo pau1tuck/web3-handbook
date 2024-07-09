@@ -1,35 +1,12 @@
 import { ModeToggle } from "@/components/theme-toggle";
-import { page_routes } from "@/lib/routes-config";
-import { GithubIcon, ParenthesesIcon, TwitterIcon } from "lucide-react";
+import { config } from "@/lib/config";
+import { GithubIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
 import Anchor from "./anchor";
 import { SheetLeftbar } from "./leftbar";
 import { Logo } from "./logo";
 import Search from "./search";
 import { buttonVariants } from "./ui/button";
-
-export const NAVLINKS = [
-	{
-		title: "Documentation",
-		href: `/docs/${page_routes[0].href}`,
-	},
-	{
-		title: "Examples",
-		href: "#",
-	},
-	{
-		title: "Guides",
-		href: "#",
-	},
-	{
-		title: "Community",
-		href: "#",
-	},
-	{
-		title: "Blog",
-		href: "#",
-	},
-];
 
 export function Navbar() {
 	return (
@@ -41,12 +18,12 @@ export function Navbar() {
 						<Logo />
 					</div>
 					<div className="lg:flex hidden items-center gap-5 text-sm font-medium text-muted-foreground">
-						{NAVLINKS.map((item) => {
+						{config.navlinks.map((item) => {
 							return (
 								<Anchor
 									key={item.title + item.href}
 									activeClassName="text-black dark:text-white font-semibold"
-									absolute
+									absolute={true}
 									href={item.href}
 								>
 									{item.title}
@@ -61,7 +38,10 @@ export function Navbar() {
 						<div className="flex -space-x-0.5">
 							<Link
 								href="https://github.com/nisabmohd/Docs-Stater-Template"
-								className={buttonVariants({ variant: "ghost", size: "icon" })}
+								className={buttonVariants({
+									variant: "ghost",
+									size: "icon",
+								})}
 							>
 								<GithubIcon className="h-[1.1rem] w-[1.1rem]" />
 							</Link>
