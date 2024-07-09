@@ -1,17 +1,17 @@
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import { compileMDX } from "next-mdx-remote/rsc";
-import path from "path";
-import { promises as fs } from "fs";
-import remarkGfm from "remark-gfm";
-import rehypePrism from "rehype-prism-plus";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
-import { page_routes } from "./routes-config";
+import rehypePrism from "rehype-prism-plus";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
+import { page_routes } from "./routes-config";
 
+import Pre from "@/components/pre";
 // custom components imports
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Pre from "@/components/pre";
 
 type MdxFrontmatter = {
   title: string;
@@ -50,7 +50,7 @@ export async function getMarkdownForSlug(slug: string) {
       components,
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }
 
@@ -75,7 +75,7 @@ export async function getTocs(slug: string) {
 }
 
 export function getPreviousNext(path: string) {
-  const index = page_routes.findIndex(({ href }) => href == path);
+  const index = page_routes.findIndex(({ href }) => href === path);
   return {
     prev: page_routes[index - 1],
     next: page_routes[index + 1],
