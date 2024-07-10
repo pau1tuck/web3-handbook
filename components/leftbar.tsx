@@ -60,7 +60,7 @@ export function SheetLeftbar() {
 				</SheetHeader>
 				<ScrollArea className="flex flex-col gap-4">
 					<div className="flex flex-col gap-2 mt-3 mx-2 px-8">
-						{config.modules.map((item) => {
+						{config.sections.map((item) => {
 							return (
 								<SheetClose
 									asChild={true}

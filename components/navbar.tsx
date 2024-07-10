@@ -18,7 +18,7 @@ export function Navbar() {
 						<Logo />
 					</div>
 					<div className="lg:flex hidden items-center gap-5 text-sm font-medium text-muted-foreground">
-						{config.modules.map((item) => {
+						{config.sections.map((item) => {
 							return (
 								<Anchor
 									key={item.title + item.href}

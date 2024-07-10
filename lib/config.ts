@@ -10,7 +10,7 @@ interface Topic {
 	chapters: Chapter[];
 }
 
-interface Module {
+interface Section {
 	title: string;
 	href: string;
 	topics: Topic[];
@@ -21,7 +21,7 @@ export interface Config {
 		title: string;
 		description: string;
 	};
-	modules: Module[];
+	sections: Section[];
 }
 
 export const config: Config = {
@@ -29,26 +29,30 @@ export const config: Config = {
 		title: "Web3 Handbook",
 		description: "This is the best place to learn about Web3.",
 	},
-	modules: [
+	sections: [
 		{
-			title: "Blockchain",
-			href: "/docs/getting-started/introduction",
+			title: "Core Concepts",
+			href: "/docs/core-concepts/introduction",
 			topics: [
 				{
-					title: "Introduction",
-					href: "introduction",
+					title: "Introduction to Web3",
+					href: "/docs/core-concepts/introduction",
 					chapters: [
 						{
-							title: "Introduction to Web3",
-							href: "/introduction-to-web3",
+							title: "Blockchain Technology",
+							href: "/docs/core-concepts/blockchain-technology",
+						},
+                        {
+							title: "Cryptocurrency",
+							href: "/docs/core-concepts/cryptocurrency",
 						},
 					],
 				},
 			],
 		},
 		{
-			title: "Ethereum",
-			href: "/ethereum/introduction-to-ethereum",
+			title: "Blockchains",
+			href: "/blockchains/blockchains",
 			topics: [],
 		},
 		{
@@ -69,7 +73,7 @@ export const config: Config = {
 	],
 };
 
-export const ROUTES = config.modules.flatMap(({ href, topics }) => {
+export const ROUTES = config.sections.flatMap(({ href, topics }) => {
 	return topics.map((topic) => {
 		return {
 			title: topic.title,
