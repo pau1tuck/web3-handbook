@@ -50,7 +50,7 @@ export async function getMarkdownForSlug(slug: string) {
 			components,
 		});
 	} catch (err) {
-		console.log(err);
+		console.error(err);
 	}
 }
 
@@ -75,7 +75,7 @@ export async function getTocs(slug: string) {
 }
 
 export function getPreviousNext(path: string) {
-	const index = page_routes.findIndex(({ href }) => href == path);
+	const index = page_routes.findIndex(({ href }) => href === path);
 	return {
 		prev: page_routes[index - 1],
 		next: page_routes[index + 1],
