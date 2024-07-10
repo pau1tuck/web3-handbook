@@ -9,11 +9,19 @@ import { buttonVariants } from "./ui/button";
 
 export const NAVLINKS = [
     {
-        title: "Core Concepts",
+        title: "Fundamentals",
         href: `/docs/${page_routes[0].href}`,
     },
     {
+        title: "Bitcoin",
+        href: "#",
+    },
+    {
         title: "Ethereum",
+        href: "#",
+    },
+    {
+        title: "Solana",
         href: "#",
     },
 ];
