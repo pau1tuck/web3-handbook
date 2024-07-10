@@ -1,7 +1,7 @@
 import DocsBreadcrumb from "@/components/docs-breadcrumb";
 import Pagination from "@/components/pagination";
 import Toc from "@/components/toc";
-import { ROUTES } from "@/lib/config";
+import { page_routes } from "@/lib/routes-config";
 import { notFound } from "next/navigation";
 import { getMarkdownForSlug } from "@/lib/markdown";
 import { PropsWithChildren, cache } from "react";
@@ -55,7 +55,7 @@ export async function generateMetadata({ params: { slug = [] } }: PageProps) {
 }
 
 export function generateStaticParams() {
-  return ROUTES.map((item) => ({
+  return page_routes.map((item) => ({
     slug: item.href.split("/"),
   }));
 }
