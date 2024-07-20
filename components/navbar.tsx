@@ -1,4 +1,5 @@
 import { ModeToggle } from "@/components/theme-toggle";
+import { ethereum_routes } from "@/routes/ethereum.routes";
 import { page_routes } from "@/routes/routes-config";
 import { GithubIcon, ParenthesesIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
@@ -18,7 +19,7 @@ export const NAVLINKS = [
     },
     {
         title: "Ethereum",
-        href: "#",
+        href: `/docs/ethereum/${ethereum_routes[0].href}`,
     },
     {
         title: "Solana",

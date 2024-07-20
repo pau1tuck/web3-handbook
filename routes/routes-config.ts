@@ -13,7 +13,7 @@ export const ROUTES = [
 		],
 	},
 	{
-		title: "Blockchain Fundamentals",
+		title: "Blockchain Technology",
 		href: "server-actions",
 		items: [
 			{ title: "getSession", href: "/getSession" },
